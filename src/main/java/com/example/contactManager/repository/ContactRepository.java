@@ -11,15 +11,19 @@ import java.util.UUID;
 public interface ContactRepository {
     Contact create(Contact contact);
 
+
     Contact read(Integer id);
 
     List<Contact> readAll();
 
+
     Contact update(Contact contact);
 
     boolean delete(Integer id);
+
     // Новый метод для поиска контактов по ownerId
   //  List<Contact> findAllByOwnerId(Integer ownerId);
+
 }
 
 

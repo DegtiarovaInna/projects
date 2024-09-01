@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
 //Хранит контакты в памяти в списке contacts.
 //Полезно для тестирования или когда нет необходимости в реальной базе данных.
 //Данные не сохраняются между запусками приложения.
@@ -17,12 +18,15 @@ public class InMemoryContactRepository implements ContactRepository{
 
     @Override
     public Contact create(Contact contact) {
+
         contacts.add(contact);
         return contact;
     }
 
     @Override
+
     public Contact read(Integer id) {
+
         return contacts.stream()
                 .filter(contact -> contact.getId().equals(id))
                 .findFirst()
@@ -30,7 +34,9 @@ public class InMemoryContactRepository implements ContactRepository{
     }
 
     @Override
+
     public List<Contact> readAll() {
+
         return new ArrayList<>(contacts);
     }
 
@@ -54,6 +60,7 @@ public class InMemoryContactRepository implements ContactRepository{
     public boolean delete(Integer id) {
         return contacts.removeIf(contact -> contact.getId().equals(id));
     }
+
 
 
 }
@@ -105,6 +112,7 @@ public class InMemoryContactRepository implements ContactRepository{
 //        return null;
 //    } //дописать
 //}
+
 //можно использовать аннотацию @Primary для приоритета одного репозитория перед другим.
 //
 //Если в будущем потребуется переключиться между репозиториями, можно сделать это с

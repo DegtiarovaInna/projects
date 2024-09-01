@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 import java.util.Random;
 
 @Service
@@ -50,9 +51,11 @@ public Contact updateContact(Contact contact) {
 //    }
 //Создает объект Contact с указанными данными и ID.
 //Обновляет контакт в репозитории ContactRepository.
+
     public boolean deleteContact(Integer id) {
         return contactRepository.delete(id);
     }
+
 
     public List<Contact> getAllContacts() {
         return contactRepository.readAll();
@@ -105,6 +108,7 @@ public Contact updateContact(Contact contact) {
 //
 
 
+
 //    public Contact getContactById(UUID id) {
 //        return contacts.stream()
 //                .filter(contact -> contact.getId().equals(id))
@@ -140,7 +144,7 @@ public Contact updateContact(Contact contact) {
 //                .name("John")
 //                .email("john@example.com")
 //                .build();
-//    }
+
 
 
 

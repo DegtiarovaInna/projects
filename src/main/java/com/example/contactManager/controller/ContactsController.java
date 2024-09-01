@@ -17,13 +17,16 @@ import java.util.List;
 @Tag(name = "Contact'ы", description = "Описание")
 public class ContactsController {
     @Autowired
+
     private ContactService contactService;
+
 
     @Operation(summary = "Получить контакт по ID", description = "Возвращает контакт по указанному идентификатору.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Успешное получение контакта"),
             @ApiResponse(responseCode = "404", description = "Контакт не найден") })
     @GetMapping("/{id}")
+
     public ResponseEntity<Contact> getContact(@PathVariable Integer id) {
         Contact contact = contactService.getContact(id);
         return contact != null ? ResponseEntity.ok(contact) : ResponseEntity.notFound().build();
@@ -66,6 +69,7 @@ public class ContactsController {
     public ResponseEntity<Void> deleteContact(@PathVariable Integer id) {
         boolean deleted = contactService.deleteContact(id);
         return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+
     }
 
     @Operation(summary = "Получить все контакты", description = "Возвращает список всех контактов.")
@@ -76,6 +80,7 @@ public class ContactsController {
         List<Contact> contacts = contactService.getAllContacts();
         return ResponseEntity.ok(contacts);
     }
+
 
 
 }
@@ -156,4 +161,5 @@ public class ContactsController {
 ////                .build();
 ////        return ResponseEntity.ok(contact);
 ////    }
+
 
